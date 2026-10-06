@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:scrollbars="none"
+    android:background="@drawable/ic_launcher_foreground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- HEADER -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Transaction"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Record your income or expense"
+            android:textSize="13sp"
+            android:textColor="#777777"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"/>
+
+
+        <!-- INCOME / EXPENSE -->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/typeTabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+
+            android:background="@color/white"
+
+            app:tabMode="fixed"
+            app:tabGravity="fill"
+
+            app:tabTextColor="#777777"
+            app:tabSelectedTextColor="@color/black"
+
+            app:tabIndicatorColor="@color/black"
+            app:tabIndicatorHeight="3dp"
+            app:tabIndicatorFullWidth="false"
+
+            app:tabRippleColor="@android:color/transparent">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/income"/>
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/expense"/>
+
+        </com.google.android.material.tabs.TabLayout>
+
+
+        <!-- FORM CARD -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+
+            app:cardBackgroundColor="#FAFAFA"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#E5E5E5"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+
+                <!-- AMOUNT -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:hint="@string/amount"
+
+                    app:startIconDrawable="@drawable/outline_currency_rupee_24"
+                    app:startIconTint="@color/black"
+
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusTopStart="14dp"
+                    app:boxCornerRadiusTopEnd="14dp"
+                    app:boxCornerRadiusBottomStart="14dp"
+                    app:boxCornerRadiusBottomEnd="14dp"
+
+                    app:boxStrokeColor="@color/black"
+                    app:hintTextColor="@color/black"
+
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAmount"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:inputType="numberDecimal"
+
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!-- DESCRIPTION -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="14dp"
+
+                    android:hint="@string/description"
+
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusTopStart="14dp"
+                    app:boxCornerRadiusTopEnd="14dp"
+                    app:boxCornerRadiusBottomStart="14dp"
+                    app:boxCornerRadiusBottomEnd="14dp"
+
+                    app:boxStrokeColor="@color/black"
+                    app:hintTextColor="@color/black"
+
+                    app:counterEnabled="true"
+                    app:counterMaxLength="100"
+
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDescription"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:inputType="textCapSentences|textMultiLine"
+
+                        android:minLines="2"
+                        android:gravity="top"
+
+                        android:textColor="@color/black"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!-- CATEGORY -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="14dp"
+
+                    android:hint="@string/category"
+
+                    app:endIconMode="dropdown_menu"
+
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusTopStart="14dp"
+                    app:boxCornerRadiusTopEnd="14dp"
+                    app:boxCornerRadiusBottomStart="14dp"
+                    app:boxCornerRadiusBottomEnd="14dp"
+
+                    app:boxStrokeColor="@color/black"
+                    app:hintTextColor="@color/black"
+
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/spinnerCategory"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:inputType="none"
+
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <!-- BUTTONS -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            android:gravity="end"
+
+            android:layout_marginTop="20dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancel"
+
+                android:layout_width="wrap_content"
+                android:layout_height="52dp"
+
+                android:text="@string/cancel"
+                android:textColor="@color/black"
+
+                app:cornerRadius="14dp"
+                app:strokeColor="#CCCCCC"
+                app:strokeWidth="1dp"
+
+                style="@style/Widget.Material3.Button.OutlinedButton"/>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+
+                android:text="@string/save"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+
+                android:backgroundTint="#FFB800"
+
+                app:cornerRadius="14dp"
+
+                style="@style/Widget.Material3.Button"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
